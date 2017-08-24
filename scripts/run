@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+IMAGE="asssaf/urbit-fakezod-alpine"
+MOUNT="fakezod"
+
+if [ "$1" == "-d" ]
+then
+	DAEMON="-d"
+	shift
+fi
+
+# make sure the mount dir is created before volume mapping by docker (which
+# will mkdir as root)
+[ -d "$MOUNT" ] || mkdir "$MOUNT"
+
+docker run -t ${DAEMON:--i} --rm \
+	--net host \
+	-v $(pwd)/$MOUNT:/urbit/zod \
+	--user $(id -u):$(id -g) \
+	${IMAGE} ${DAEMON} $*

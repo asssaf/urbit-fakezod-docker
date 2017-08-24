@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]
+then
+        >&2 echo "Usage: $(basename $0) <container>"
+        exit 1
+fi
+
+docker exec -ti $1 tmux attach
