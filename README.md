@@ -2,7 +2,7 @@ Ready to run urbit fakezod docker container
 
 Just run it:
 ```
-$ docker run --rm -ti asssaf/urbit-fakezod-alpine
+$ docker run --rm -ti asssaf/urbit-fakezod
 
 Unpacking initial fakezod state
 .urb/

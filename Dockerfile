@@ -1,6 +1,6 @@
-FROM asssaf/urbit-alpine as builder
+FROM asssaf/urbit as builder
 
-RUN apk add --no-cache git python py-pexpect
+RUN apt-get update && apt-get install -y git python python-pexpect
 
 # avoid /urbit which is a volume
 WORKDIR /tmp
@@ -16,7 +16,7 @@ RUN python createfakezod.py
 RUN tar -cvz -C fakezod -f fakezod-init.tar.gz .urb
 
 
-FROM asssaf/urbit-alpine
+FROM asssaf/urbit
 
 COPY --from=builder /tmp/fakezod-init.tar.gz /tmp/fakezod-init.tar.gz
 COPY entrypoint-fakezod.sh /
