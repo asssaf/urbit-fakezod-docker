@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE="asssaf/urbit-fakezod-alpine"
+IMAGE="asssaf/urbit-fakezod"
 MOUNT="fakezod"
 
 if [ "$1" == "-d" ]
