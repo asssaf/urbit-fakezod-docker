@@ -11,4 +11,4 @@ else
 	tar xv -f /tmp/fakezod-init.tar.gz -C /urbit/zod
 fi
 
-/entrypoint.sh $* -F -I zod zod
+/entrypoint.sh $* zod

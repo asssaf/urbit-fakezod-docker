@@ -1,6 +1,6 @@
 import pexpect, sys
 
-child = pexpect.spawn ('urbit -F -I zod -A arvo -c fakezod')
+child = pexpect.spawn ('urbit -F zod')
 child.logfile = sys.stdout
 child.expect("activated app home/dojo", timeout=600)
 child.expect("~zod:dojo>", timeout=600)
