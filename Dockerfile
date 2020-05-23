@@ -22,7 +22,7 @@ RUN python createfakezod.py
 RUN tar -cvz -C zod -f fakezod-init.tar.gz .urb
 
 
-FROM asssaf/urbit
+FROM urbit-base
 
 COPY --from=builder /tmp/fakezod-init.tar.gz /tmp/fakezod-init.tar.gz
 COPY entrypoint-fakezod.sh /
