@@ -43,7 +43,13 @@ http: live (insecure, loopback) on 12321
 For mapping volumes (for storing state between runs and accessing the unix mounts) and network ports (for accessing web) see [`scripts/run`](scripts/run)
 
 ## Build
-Use the `DOCKER_TAG` build arg to set the tag of the base urbit image:
 ```
-$ docker build -t asssaf/urbit-fakezod --build-arg DOCKER_TAG=urbit-os-v1.0.16-nix .
+$ docker build -t asssaf/urbit-fakezod:latest .
+```
+
+By default `asssaf/urbit:latest` is used as the base image.
+
+The `DOCKER_TAG` build arg can be used to specify the tag of the base urbit image:
+```
+$ docker build -t asssaf/urbit-fakezod:urbit-os-v1.0.16-nix --build-arg DOCKER_TAG=urbit-os-v1.0.16-nix .
 ```
