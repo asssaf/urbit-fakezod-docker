@@ -1,3 +1,7 @@
+# urbit-fakezod-docker
+[![Docker Build Status](https://img.shields.io/docker/build/asssaf/urbit.svg?style=flat)](https://hub.docker.com/r/asssaf/urbit-fakezod/)
+[![latest tag](https://img.shields.io/badge/latest-urbit--os--v1.0.16--nix-blue.svg)](https://hub.docker.com/r/asssaf/urbit-fakezod/tags/)
+
 Ready to run urbit fakezod docker container
 
 Just run it:
@@ -37,3 +41,9 @@ http: live (insecure, loopback) on 12321
 ```
 
 For mapping volumes (for storing state between runs and accessing the unix mounts) and network ports (for accessing web) see [`scripts/run`](scripts/run)
+
+## Build
+Use the `DOCKER_TAG` build arg to set the tag of the base urbit image:
+```
+$ docker build -t asssaf/urbit-fakezod --build-arg DOCKER_TAG=urbit-os-v1.0.16-nix .
+```
