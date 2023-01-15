@@ -1,5 +1,5 @@
 ARG DOCKER_TAG=latest
-FROM asssaf/urbit:$DOCKER_TAG as urbit-base
+FROM tloncorp/urbit:$DOCKER_TAG as urbit-base
 
 FROM debian:buster-slim as builder
 
@@ -13,7 +13,7 @@ ENV TERM=xterm
 ADD createfakezod.py /tmp/
 
 COPY --from=urbit-base /bin/urbit /bin/
-COPY --from=urbit-base /bin/urbit-worker /bin/
+COPY --from=urbit-base /bin/start-urbit /bin/
 COPY --from=urbit-base /nix /nix
 
 
@@ -24,7 +24,7 @@ RUN tar -cvz -C zod -f fakezod-init.tar.gz .urb
 
 FROM urbit-base
 
-COPY --from=builder /tmp/fakezod-init.tar.gz /tmp/fakezod-init.tar.gz
+COPY --from=builder /tmp/zod/ /tmp/zod/
 COPY entrypoint-fakezod.sh /
 
 ENTRYPOINT [ "/entrypoint-fakezod.sh" ]

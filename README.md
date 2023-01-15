@@ -47,7 +47,7 @@ For mapping volumes (for storing state between runs and accessing the unix mount
 $ docker build -t asssaf/urbit-fakezod:latest .
 ```
 
-By default `asssaf/urbit:latest` is used as the base image.
+By default `tloncorp/urbit:latest` is used as the base image.
 
 The `DOCKER_TAG` build arg can be used to specify the tag of the base urbit image:
 ```
