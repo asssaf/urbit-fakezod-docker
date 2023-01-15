@@ -18,5 +18,4 @@ fi
 docker run -t ${DAEMON:--i} --rm \
 	--net host \
 	-v $(pwd)/$MOUNT:/urbit/zod \
-	--user $(id -u):$(id -g) \
 	${IMAGE} ${DAEMON} $*

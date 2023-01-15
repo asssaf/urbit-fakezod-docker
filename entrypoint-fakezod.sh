@@ -7,8 +7,8 @@ then
 	echo "Found existing state"
 else
 	echo "Unpacking initial fakezod state"
-	[ -d /urbit/zod ] || mkdir -p /urbit/zod
-	tar xv -f /tmp/fakezod-init.tar.gz -C /urbit/zod
+	[ -d /urbit/zod ] || mkdir -p /urbit
+	cp -av /tmp/zod /urbit/
 fi
 
-/entrypoint.sh $* zod
+/bin/start-urbit $* zod
